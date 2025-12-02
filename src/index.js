@@ -1,6 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
 import Menu from './Menu';
+import TableQR from './TableQR';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Menu tableId="B01" />);
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<TableQR />} />
+      <Route path="/menu" element={<Menu />} />
+      <Route path="/*" element={<App />} />
+    </Routes>
+  </BrowserRouter>
+);
